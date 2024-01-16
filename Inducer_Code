@@ -1,0 +1,105 @@
+#include <FastLED.h>
+#include <Wire.h>
+#include <MCP342X.h>
+
+MCP342X myADC;
+
+#define FAN_LEDS 38 // Define the pin connected to the data input of the LED strip
+#define BAT_LED 47 // Battery inication
+
+#define RGB1 10 // First RGB light
+#define RGB2 11 // Second RGB light
+#define RGB3 12 // Third RGB light
+
+#define NUM_LEDS_FAN 3 // Define the number of LEDs in fan strip
+#define NUM_LEDS_BAT 1 // Define the number of LEDs in battery strip
+
+CRGB fanLeds[NUM_LEDS_FAN]; // Configure
+CRGB battLeds[NUM_LEDS_BAT];
+
+CRGB rgbLed1[1];
+CRGB rgbLed2[1];
+CRGB rgbLed3[1];
+
+int activeLED = 0; // Counter to switch between xmas light LEDs
+
+unsigned long previousMillis = 0; // Store the last time LED colors were updated
+unsigned long previousMillis2 = 0; // Store the last time LED colors were updated
+
+const long interval = 5; // Interval for color change in milliseconds (fan LEDs)
+
+void setup() 
+{
+  Wire.begin();  // Join I2C bus
+
+  FastLED.addLeds<SK6812, FAN_LEDS, GRB>(fanLeds, NUM_LEDS_FAN); // Add different buses
+  FastLED.addLeds<SK6812, BAT_LED, GRB>(battLeds, NUM_LEDS_BAT);
+
+  FastLED.addLeds<SK6812, RGB1, GRB>(rgbLed1, 1);
+  FastLED.addLeds<SK6812, RGB2, GRB>(rgbLed2, 1);
+  FastLED.addLeds<SK6812, RGB3, GRB>(rgbLed3, 1);
+
+  FastLED.setBrightness(100); // 0-255, 255 being the brightest
+    
+  myADC.configure(MCP342X_MODE_CONTINUOUS | MCP342X_CHANNEL_1 | MCP342X_SIZE_16BIT | MCP342X_GAIN_1X); // Configure ADC IC
+}
+
+void loop() 
+{
+  static int16_t  result;
+  
+  myADC.startConversion();
+  myADC.getResult(&result);
+
+  unsigned long currentMillis = millis();  // Get the current time
+
+  int ledColor = map(result, 15010, 19161, 0, 190); // Map the battery voltage to a color
+
+  fill_solid(battLeds, NUM_LEDS_BAT, CHSV(ledColor, 255, 255)); // Set battery LED to the current color (0: red, 85: green, 170: blue, etc)
+
+  if (currentMillis - previousMillis2 >= 200) 
+  {
+    previousMillis2 = currentMillis;
+
+    // Increment the active LED, wrapping back to 1 after 3
+    activeLED++;
+    if (activeLED > 3)
+      activeLED = 1;
+
+    // Based on the active LED, turn only that LED on and others off
+    if (activeLED == 1) 
+    {
+      fill_solid(rgbLed1, 1, CHSV(0, 255, 255)); // ON
+      fill_solid(rgbLed2, 1, CRGB::Black); // OFF
+      fill_solid(rgbLed3, 1, CRGB::Black); // OFF
+    } 
+    else if (activeLED == 2) 
+    {
+      fill_solid(rgbLed1, 1, CRGB::Black); // OFF
+      fill_solid(rgbLed2, 1, CHSV(0, 255, 255)); // ON
+      fill_solid(rgbLed3, 1, CRGB::Black); // OFF
+    } 
+    else if (activeLED == 3) 
+    {
+      fill_solid(rgbLed1, 1, CRGB::Black); // OFF
+      fill_solid(rgbLed2, 1, CRGB::Black); // OFF
+      fill_solid(rgbLed3, 1, CHSV(0, 255, 255)); // ON
+    }
+  }
+
+  // Check if it's time to change the LED colors for the fan strip (blink without delay)
+  if (currentMillis - previousMillis >= interval) 
+  {
+    previousMillis = currentMillis;  // Save the last time colors were updated
+
+    // Cycle through all visible colors
+    static int i = 0;
+    fill_solid(fanLeds, NUM_LEDS_FAN, CHSV(i, 255, 255)); // Set all LEDs to the current color (0: red, 85: green, 170: blue, etc)
+    FastLED.show();
+
+    i += 3; // Increment the color index (3 so it's a bit faster)
+
+    if (i >= 256)
+      i = 0;  // Reset the color index when it reaches 256 (loop around)
+  }
+}
