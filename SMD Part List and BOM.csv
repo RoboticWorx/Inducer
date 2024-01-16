@@ -1,0 +1,63 @@
+,From LCSC,,,,,,
+Order Qty.,LCSC Part Number,Manufacture Part Number,Manufacturer,Package,Description,RoHS,Unit Price
+3,C383211,LESD5D5.0CT1G,LRC,SOD-523,Zener Diode 5.6V 18.6V 5V Bi-Directional SOD-523  ESD Protection Devices ROHS,YES,0.0152
+1,C82544,1N5819HW-7-F,Diodes Incorporated,SOD-123,Diode 40V 450mV@1A 1A SOD-123  Schottky Barrier Diodes (SBD) ROHS,YES,0.0208
+7,C5378720,SK6812,OPSCO Optoelectronics,"SMD-4P,5.4x5mm","SMD-4P,5.4x5mm Light Emitting Diodes (LED) ROHS",YES,0.153
+2,C2912598,HoAR0805-1/8W-5.1KR-0.1%-TCR25,Milliohm,805,5k1 Resistor 125mW Ceramic resistor ±25ppm/℃ ±0.1% 5.1kΩ 0805  Chip Resistor - Surface Mount ROHS,YES,0.0506
+4,"C2849095 (Used these instead of the 75 and 110ohm resistors, but its flexible so long as it�s the value or greater)",PTFR0805B200RP9,Resistor.Today,805,200ohm Resistor 0.13W Thin Film Resistor ±25ppm/℃ ±0.1% 200Ω 0805  Chip Resistor - Surface Mount ROHS,YES,0.1403
+1,C2765186,TYPE-C 16PIN 2MD(073),SHOU HAN,SMD,USB-C Connector 5A 1 Surface Mount 16P Female -25℃~+85℃ Type-C SMD  USB Connectors ROHS,YES,0.0523
+,,,,,,,
+,From DigiKey,,,,,,
+,Digi-Key Part #,Manufacturer Part Number,Description,Backorder,Unit Price,,
+5,1276-6454-1-ND,CL21A106KAYNNNG,10uF/25V Capacitor CAP CER 10UF 25V X5R 0805,0,$0.07 ,,
+3,1276-1034-1-ND,CL10A105KO8NNNC,1uF/16V Capacitor CAP CER 1UF 16V X5R 0603,0,$0.01 ,,
+3,RNCP0603FTD10K0CT-ND,RNCP0603FTD10K0,10kohm Resistor RES 10K OHM 1% 1/8W 0603,0,$0.02 ,,
+2,IRF3205PBF-ND,IRF3205PBF,"	
+MOSFET N-CH 55V 110A TO220AB",0,$1.60 ,,
+6,1276-CL10B104KB8NNNLTR-ND ,"	
+CL10B104KB8NNNL",CAP CER 0.1UF 50V X7R 0603,0,$0.10 ,,
+1,"
+1276-1028-2-ND",CL05B103KB5NNNC,"	
+CAP CER 10000PF 50V X7R 0402",0,$0.10 ,,
+3,"	
+495-1126-ND","	
+B32522C0225J000","	
+CAP FILM 2.2UF 5% 63VDC RADIAL",0,$1.38 ,,
+3,"	
+160-1435-2-ND","	
+LTST-C190KGKT","	
+LED GREEN CLEAR CHIP SMD",0,$0.25 ,,
+2,"	
+160-1436-2-ND","	
+LTST-C190KRKT","	
+LED RED CLEAR CHIP SMD",0,$0.23 ,,
+3,RG16P2.0KBTR-ND (I also used this for the 1k7 resistor),RG1608P-202-B-T5,RES SMD 2K OHM 0.1% 1/10W 0603,0,$0.48 ,,
+1,"	
+311-1.00KHRTR-ND","	
+RC0603FR-071KL",RES 1K OHM 1% 1/10W 0603,0,$0.10 ,,
+1,13-RT0603BRE075KLTR-ND,"	
+RT0603BRE075KL","	
+RES 5K OHM 0.1% 1/10W 0603",0,$0.39 ,,
+2,"	
+311-4.70KHRTR-ND",RC0603FR-074K7L,"	
+RES 4.7K OHM 1% 1/10W 0603",0,$0.10 ,,
+1,"	
+EG2585-ND","	
+EG1224",SWITCH SLIDE SPDT 500MA 15V,0,$0.94 ,,
+2,CKN10504TR-ND,"	
+PTS810 SJG 250 SMTR LFS","	
+SWITCH TACTILE SPST-NO 0.05A 16V",0,$0.43 ,,
+1,296-13810-2-ND,"	
+TPS79533DCQR","	
+IC REG LIN 3.3V 500MA SOT223-6",0,$2.61 ,,
+1,"	
+296-38875-2-ND",BQ24090DGQR,"	
+IC BATT CHG LI-ION 1CELL 10MSOP",0,$1.26 ,,
+1,1965-ESP32-S3-WROOM-1U-N16R8TR-ND,ESP32-S3-WROOM-1U-N16R8,"	
+RF TXRX MOD BLUETOOTH U.FL SMD",0,$3.90 ,,
+1,MCP3425A0T-E/CHTR-ND,"	
+MCP3425A0T-E/CH","	
+IC ADC 16BIT SIGMA-DELTA SOT23-6",0,$2.82 ,,
+,,,,,,,
+,"ALL OTHER COMPONENTS WERE PURCHASED VIA AMAZON. Remember, it's better to buy too many than too few if you break one.",,,,,,
+,(Links in the project BOM www.roboticworx.io),,,,,,
